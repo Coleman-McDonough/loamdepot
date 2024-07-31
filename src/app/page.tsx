@@ -12,8 +12,10 @@ import Video from "@/components/Video"
 import { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "Free Next.js Template for Startup and SaaS",
-  description: "This is Home for Startup Nextjs Template",
+  title:
+    "Loam Depot | Wholesale Loam, Sand, River Rock, Field Stone & Crushed Concrete - NH",
+  description:
+    "Loam Depot, family-owned and operated for 12 years, offers high-quality loam, sand, river rock, field stone, and crushed concrete at wholesale prices. With locations in Newton and Sanbornville, New Hampshire, we provide fast delivery and price matching. Contact us today for all your landscaping and construction material needs.",
   // other metadata
 }
 
