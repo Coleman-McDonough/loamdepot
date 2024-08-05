@@ -1,146 +1,224 @@
-import NewsLatterBox from "./NewsLatterBox"
+"use client"
+import React, { useState } from "react"
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    address: "",
+    phone: "",
+    material_type: "",
+    material_amount: "",
+    message: "",
+  })
+  const [status, setStatus] = useState("") // State for form submission status
+  const [errorMessage, setErrorMessage] = useState("") // State for error message
+  const [successMessage, setSuccessMessage] = useState("") // State for success message
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value })
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setStatus("Sending...")
+    setErrorMessage("") // Reset error message
+    setSuccessMessage("") // Reset success message
+
+    try {
+      const response = await fetch("/api/send-email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      })
+
+      const result = await response.json()
+      if (result.success) {
+        setStatus("") // Clear status
+        setSuccessMessage(
+          "Your message has been sent successfully! We'll get back to you ASAP.",
+        )
+        setFormData({
+          name: "",
+          email: "",
+          address: "",
+          phone: "",
+          material_type: "",
+          material_amount: "",
+          message: "",
+        }) // Reset form fields
+      } else {
+        setStatus("") // Clear status
+        setErrorMessage(
+          result.details || "An error occurred while sending the email.",
+        ) // Set error message if available
+      }
+    } catch (error) {
+      setStatus("") // Clear status
+      setErrorMessage(error.message || "An unknown error occurred.")
+    }
+  }
+
   return (
-    <section id="contact" className="overflow-hidden py-16 md:py-20 lg:py-28">
-      <div className="container">
-        <div className="-mx-4 flex flex-wrap">
-          <div className="w-full px-4">
+    <section id="contact" className="py-6">
+      <div className="container mx-auto px-4">
+        <div className="flex justify-center">
+          <div className="w-full lg:w-8/12">
             <div
-              className="mb-12 rounded-sm bg-white px-8 py-11 shadow-three dark:bg-gray-dark sm:p-[55px] lg:mb-5 lg:px-8 xl:p-[55px]"
-              data-wow-delay=".15s
-              "
+              className="dark:bg-gray-dark rounded-lg bg-white p-8 shadow-md"
+              data-wow-delay=".15s"
             >
-              <h2 className="mb-3 text-2xl font-bold text-black dark:text-white sm:text-3xl lg:text-2xl xl:text-3xl">
+              <h2 className="dark:text-white mb-6 text-center text-2xl font-bold sm:text-3xl">
                 Need Materials? Let Us Know!
               </h2>
-              <p className="mb-8 text-base font-medium text-body-color">
+              <p className="mb-8 text-center text-base font-medium text-body-color">
                 Please, send us your: name, email, phone number, address, which
-                material you need, how material and when to deliver it. A member
-                of our team will reach back out to you ASAP!
+                material you need, how much, and when to deliver it. A member of
+                our team will reach back out to you ASAP!
               </p>
-              <form>
-                <div className="-mx-4 flex flex-wrap">
-                  <div className="w-full px-4 md:w-1/2">
-                    <div className="mb-8">
-                      <label
-                        htmlFor="name"
-                        className="mb-3 block text-sm font-medium text-dark dark:text-white"
-                      >
-                        Name
-                      </label>
-                      <input
-                        type="text"
-                        placeholder="Enter your name"
-                        className="border-stroke w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:text-body-color-dark dark:shadow-two dark:focus:border-primary dark:focus:shadow-none"
-                      />
-                    </div>
+              <form onSubmit={handleSubmit}>
+                <div className="grid gap-6 md:grid-cols-2">
+                  <div>
+                    <label
+                      htmlFor="name"
+                      className="dark:text-white mb-2 block text-sm font-medium text-dark"
+                    >
+                      Your Name
+                    </label>
+                    <input
+                      type="text"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      placeholder="Enter your name"
+                      className="dark:bg-[#2C303B] dark:border-transparent dark:text-body-color-dark dark:shadow-two dark:focus:border-primary w-full rounded-lg border border-gray-300 px-4 py-3 outline-none focus:border-primary"
+                    />
                   </div>
-                  <div className="w-full px-4 md:w-1/2">
-                    <div className="mb-8">
-                      <label
-                        htmlFor="email"
-                        className="mb-3 block text-sm font-medium text-dark dark:text-white"
-                      >
-                        Email Address
-                      </label>
-                      <input
-                        type="email"
-                        placeholder="Enter your email"
-                        className="border-stroke w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:text-body-color-dark dark:shadow-two dark:focus:border-primary dark:focus:shadow-none"
-                      />
-                    </div>
+                  <div>
+                    <label
+                      htmlFor="email"
+                      className="dark:text-white mb-2 block text-sm font-medium text-dark"
+                    >
+                      Your Email
+                    </label>
+                    <input
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      placeholder="Enter your email"
+                      className="dark:bg-[#2C303B] dark:border-transparent dark:text-body-color-dark dark:shadow-two dark:focus:border-primary w-full rounded-lg border border-gray-300 px-4 py-3 outline-none focus:border-primary"
+                    />
                   </div>
-                  <div className="w-full px-4 md:w-1/2">
-                    <div className="mb-8">
-                      <label
-                        htmlFor="phone"
-                        className="mb-3 block text-sm font-medium text-dark dark:text-white"
-                      >
-                        Phone Number
-                      </label>
-                      <input
-                        type="text"
-                        placeholder="Enter your phone number"
-                        className="border-stroke w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:text-body-color-dark dark:shadow-two dark:focus:border-primary dark:focus:shadow-none"
-                      />
-                    </div>
+                  <div>
+                    <label
+                      htmlFor="address"
+                      className="dark:text-white mb-2 block text-sm font-medium text-dark"
+                    >
+                      Your Address
+                    </label>
+                    <input
+                      type="text"
+                      name="address"
+                      value={formData.address}
+                      onChange={handleChange}
+                      placeholder="Enter your address"
+                      className="dark:bg-[#2C303B] dark:border-transparent dark:text-body-color-dark dark:shadow-two dark:focus:border-primary w-full rounded-lg border border-gray-300 px-4 py-3 outline-none focus:border-primary"
+                    />
                   </div>
-                  <div className="w-full px-4 md:w-1/2">
-                    <div className="mb-8">
-                      <label
-                        htmlFor="address"
-                        className="mb-3 block text-sm font-medium text-dark dark:text-white"
-                      >
-                        Address
-                      </label>
-                      <input
-                        type="text"
-                        placeholder="Enter your address"
-                        className="border-stroke w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:text-body-color-dark dark:shadow-two dark:focus:border-primary dark:focus:shadow-none"
-                      />
-                    </div>
+                  <div>
+                    <label
+                      htmlFor="phone"
+                      className="dark:text-white mb-2 block text-sm font-medium text-dark"
+                    >
+                      Your Phone Number
+                    </label>
+                    <input
+                      type="text"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      placeholder="Enter your phone number"
+                      className="dark:bg-[#2C303B] dark:border-transparent dark:text-body-color-dark dark:shadow-two dark:focus:border-primary w-full rounded-lg border border-gray-300 px-4 py-3 outline-none focus:border-primary"
+                    />
                   </div>
-                  <div className="w-full px-4 md:w-1/2">
-                    <div className="mb-8">
-                      <label
-                        htmlFor="material"
-                        className="mb-3 block text-sm font-medium text-dark dark:text-white"
-                      >
-                        Material Type/Amount
-                      </label>
-                      <input
-                        type="text"
-                        placeholder="Enter which material you need and how much"
-                        className="border-stroke w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:text-body-color-dark dark:shadow-two dark:focus:border-primary dark:focus:shadow-none"
-                      />
-                    </div>
+                  <div>
+                    <label
+                      htmlFor="material_type"
+                      className="dark:text-white mb-2 block text-sm font-medium text-dark"
+                    >
+                      Material Type
+                    </label>
+                    <input
+                      name="material_type"
+                      value={formData.material_type}
+                      onChange={handleChange}
+                      placeholder="Which materials do you need?"
+                      className="dark:bg-[#2C303B] dark:border-transparent dark:text-body-color-dark dark:shadow-two dark:focus:border-primary w-full rounded-lg border border-gray-300 px-4 py-3 outline-none focus:border-primary"
+                    />
                   </div>
-                  <div className="w-full px-4 md:w-1/2">
-                    <div className="mb-8">
-                      <label
-                        htmlFor="delivery_date"
-                        className="mb-3 block text-sm font-medium text-dark dark:text-white"
-                      >
-                        Delivery Date
-                      </label>
-                      <input
-                        type="text"
-                        placeholder="Enter when you would like this delivered"
-                        className="border-stroke w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:text-body-color-dark dark:shadow-two dark:focus:border-primary dark:focus:shadow-none"
-                      />
-                    </div>
-                  </div>
-                  <div className="w-full px-4">
-                    <div className="mb-8">
-                      <label
-                        htmlFor="message"
-                        className="mb-3 block text-sm font-medium text-dark dark:text-white"
-                      >
-                        Additional Details/Questions
-                      </label>
-                      <textarea
-                        name="message"
-                        rows={5}
-                        placeholder="Please enter any additional details or questions you may have"
-                        className="border-stroke w-full resize-none rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:text-body-color-dark dark:shadow-two dark:focus:border-primary dark:focus:shadow-none"
-                      ></textarea>
-                    </div>
-                  </div>
-                  <div className="w-full px-4">
-                    <button className="rounded-sm bg-primary px-9 py-4 text-base font-medium text-white shadow-submit duration-300 hover:bg-primary/90 dark:shadow-submit-dark">
-                      Submit Request
-                    </button>
+                  <div>
+                    <label
+                      htmlFor="material_amount"
+                      className="dark:text-white mb-2 block text-sm font-medium text-dark"
+                    >
+                      Material Amount
+                    </label>
+                    <input
+                      name="material_amount"
+                      value={formData.material_amount}
+                      onChange={handleChange}
+                      placeholder="How much do you need?"
+                      className="dark:bg-[#2C303B] dark:border-transparent dark:text-body-color-dark dark:shadow-two dark:focus:border-primary w-full rounded-lg border border-gray-300 px-4 py-3 outline-none focus:border-primary"
+                    />
                   </div>
                 </div>
+                <div className="mt-6">
+                  <label
+                    htmlFor="message"
+                    className="dark:text-white mb-2 block text-sm font-medium text-dark"
+                  >
+                    Additional Details/Questions
+                  </label>
+                  <textarea
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    rows={5}
+                    placeholder="Please enter any additional details or questions you may have"
+                    className="dark:bg-[#2C303B] dark:border-transparent dark:text-body-color-dark dark:shadow-two dark:focus:border-primary w-full resize-none rounded-lg border border-gray-300 px-4 py-3 outline-none focus:border-primary"
+                  ></textarea>
+                </div>
+                <div className="mt-8 text-center">
+                  <button
+                    type="submit"
+                    className="dark:shadow-submit-dark w-full rounded-lg bg-primary px-6 py-4 text-base font-medium text-white shadow-submit duration-300 hover:bg-primary/90"
+                    disabled={status === "Sending..."} // Disable button while sending
+                  >
+                    {status === "Sending..." ? "Sending..." : "Submit"}{" "}
+                    {/* Change button text based on status */}
+                  </button>
+                </div>
               </form>
+              {status && (
+                <p className="mt-4 text-center text-sm font-medium">{status}</p>
+              )}
+              {successMessage && (
+                <p className="mt-4 text-center text-sm font-medium text-green-600">
+                  {successMessage}
+                </p>
+              )}
+              {errorMessage && (
+                <p className="mt-2 text-center text-sm font-medium text-red-600">
+                  {errorMessage}
+                </p>
+              )}
             </div>
           </div>
-          {/*
-          <div className="w-full px-4 lg:w-5/12 xl:w-4/12">
-            <NewsLatterBox />
-          </div>
-*/}
         </div>
       </div>
     </section>

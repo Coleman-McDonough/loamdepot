@@ -7,8 +7,7 @@ const testimonialData: Testimonial[] = [
     id: 1,
     name: "Heidy",
     designation: "June 10, 2024",
-    content:
-      "I was extremely impressed with the service! The team was very punctual and kept me informed every step of the way. The pricing was fair and transparent. Highly recommend!",
+    content: "Highly recommend!",
     image: "/images/testimonials/heidy.jpg",
     star: 5,
   },
@@ -16,8 +15,7 @@ const testimonialData: Testimonial[] = [
     id: 2,
     name: "Rick",
     designation: "May 30, 2024",
-    content:
-      "Great experience from start to finish! The prices were competitive, and the item descriptions were accurate, leaving no surprises. Will definitely use their services again!",
+    content: "Great experience from start to finish!",
     image: "/images/testimonials/rick.jpg",
     star: 5,
   },
@@ -25,8 +23,7 @@ const testimonialData: Testimonial[] = [
     id: 3,
     name: "Michael",
     designation: "May 2, 2024",
-    content:
-      "Exceptional service! The team arrived right on time, and their communication was excellent throughout the process. Very satisfied with the overall experience!",
+    content: "Exceptional service!",
     image: "/images/testimonials/michael.jpg",
     star: 5,
   },
@@ -37,8 +34,8 @@ const Testimonials = () => {
     <section className="bg-green-light relative z-10 py-16 dark:bg-bg-color-dark md:py-20 lg:py-28">
       <div className="container">
         <SectionTitle
-          title="What Our Users Says"
-          paragraph="There are many variations of passages of Lorem Ipsum available but the majority have suffered alteration in some form."
+          title="What Our Customers Say"
+          paragraph="Don't just take our word for it—hear what our satisfied customers have to say! At Loam Depot, we pride ourselves on delivering high-quality landscape materials and exceptional service. Read through our testimonials to see why families and businesses have trusted us for over 6 years for their loam, sand, river rock, field stone, and crushed concrete needs. Your satisfaction is our top priority!"
           center
         />
 

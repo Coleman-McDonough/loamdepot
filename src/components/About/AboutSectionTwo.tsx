@@ -52,7 +52,7 @@ const AboutSectionTwo = () => {
                   Expertise and Experience
                 </h3>
                 <p className="text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed">
-                  With over 12 years in the industry, we bring a wealth of
+                  With over 6 years in the industry, we bring a wealth of
                   experience and expertise, helping you choose the right
                   materials for your landscaping needs.
                 </p>

@@ -112,7 +112,7 @@ const Pricing = () => {
           <PricingBox
             packageName="Field Stone"
             image="/images/products/field_stone.jpg"
-            price={isMonthly ? "20" : "600"}
+            price={isMonthly ? "150" : "3300"}
             duration={isMonthly ? "yard" : "20yd"}
             subtitle="Field stone adds a natural, rustic charm to any landscape design. These stones come in various shapes and sizes, perfect for decorative walls, garden edging, and water features."
           >

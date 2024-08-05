@@ -6,7 +6,7 @@ const Hero = () => {
     <>
       <section
         id="home"
-        className="relative z-10 overflow-hidden bg-white pb-16 pt-[120px] dark:bg-gray-dark md:pb-[120px] md:pt-[150px] xl:pb-[160px] xl:pt-[180px] 2xl:pb-[200px] 2xl:pt-[210px]"
+        className="dark:bg-gray-dark relative z-10 overflow-hidden bg-white pb-16 pt-[120px] md:pb-[120px] md:pt-[150px] xl:pb-[160px] xl:pt-[180px] 2xl:pb-[200px] 2xl:pt-[210px]"
       >
         <div className="absolute inset-0 z-[-1]">
           <Image
@@ -22,11 +22,11 @@ const Hero = () => {
           <div className="container">
             <div className="-mx-4 flex flex-wrap">
               <div className="w-full px-4">
-                <div className="mx-auto my-auto max-w-[800px] rounded-md bg-gray-900 bg-opacity-80 p-6 text-center">
-                  <h1 className="mb-1 text-3xl font-bold leading-tight text-white dark:text-white sm:text-4xl sm:leading-tight md:text-5xl md:leading-tight">
+                <div className="bg-brown mx-auto my-auto max-w-[800px] rounded-md  bg-opacity-80 p-6 text-center">
+                  <h1 className="dark:text-white mb-1 text-3xl font-bold leading-tight text-white sm:text-4xl sm:leading-tight md:text-5xl md:leading-tight">
                     Premium Landscape Materials Delivered to Your Doorstep
                   </h1>
-                  <p className="text-base!leading-relaxed mb-12 font-bold text-white dark:text-body-color-dark sm:text-xl md:text-2xl">
+                  <p className="text-base!leading-relaxed dark:text-body-color-dark mb-12 font-bold text-white sm:text-xl md:text-2xl">
                     Quality Loam, Crushed Concrete, Field Stone, Sand, and River
                     Rock at Unbeatable Prices
                   </p>
