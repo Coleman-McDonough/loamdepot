@@ -8,6 +8,10 @@
   body {
     font-family: "Inter", sans-serif;
   }
+
+  html {
+    color-scheme: light;
+  }
 }
 
 @layer components {

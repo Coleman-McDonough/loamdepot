@@ -95,7 +95,7 @@ const Contact = () => {
                       value={formData.name}
                       onChange={handleChange}
                       placeholder="Enter your name"
-                      className="dark:bg-[#2C303B] dark:border-transparent dark:text-body-color-dark dark:shadow-two dark:focus:border-primary w-full rounded-lg border border-gray-300 px-4 py-3 outline-none focus:border-primary"
+                      className="dark:bg-[#2C303B] dark:border-transparent dark:text-body-color-dark dark:shadow-two dark:focus:border-primary w-full rounded-lg border border-gray-300 bg-white px-4 py-3 outline-none focus:border-primary"
                     />
                   </div>
                   <div>
@@ -111,7 +111,7 @@ const Contact = () => {
                       value={formData.email}
                       onChange={handleChange}
                       placeholder="Enter your email"
-                      className="dark:bg-[#2C303B] dark:border-transparent dark:text-body-color-dark dark:shadow-two dark:focus:border-primary w-full rounded-lg border border-gray-300 px-4 py-3 outline-none focus:border-primary"
+                      className="dark:bg-[#2C303B] dark:border-transparent dark:text-body-color-dark dark:shadow-two dark:focus:border-primary w-full rounded-lg border border-gray-300 bg-white px-4 py-3 outline-none focus:border-primary"
                     />
                   </div>
                   <div>
@@ -127,7 +127,7 @@ const Contact = () => {
                       value={formData.address}
                       onChange={handleChange}
                       placeholder="Enter your address"
-                      className="dark:bg-[#2C303B] dark:border-transparent dark:text-body-color-dark dark:shadow-two dark:focus:border-primary w-full rounded-lg border border-gray-300 px-4 py-3 outline-none focus:border-primary"
+                      className="dark:bg-[#2C303B] dark:border-transparent dark:text-body-color-dark dark:shadow-two dark:focus:border-primary w-full rounded-lg border border-gray-300 bg-white px-4 py-3 outline-none focus:border-primary"
                     />
                   </div>
                   <div>
@@ -143,7 +143,7 @@ const Contact = () => {
                       value={formData.phone}
                       onChange={handleChange}
                       placeholder="Enter your phone number"
-                      className="dark:bg-[#2C303B] dark:border-transparent dark:text-body-color-dark dark:shadow-two dark:focus:border-primary w-full rounded-lg border border-gray-300 px-4 py-3 outline-none focus:border-primary"
+                      className="dark:bg-[#2C303B] dark:border-transparent dark:text-body-color-dark dark:shadow-two dark:focus:border-primary w-full rounded-lg border border-gray-300 bg-white px-4 py-3 outline-none focus:border-primary"
                     />
                   </div>
                   <div>
@@ -158,7 +158,7 @@ const Contact = () => {
                       value={formData.material_type}
                       onChange={handleChange}
                       placeholder="Which materials do you need?"
-                      className="dark:bg-[#2C303B] dark:border-transparent dark:text-body-color-dark dark:shadow-two dark:focus:border-primary w-full rounded-lg border border-gray-300 px-4 py-3 outline-none focus:border-primary"
+                      className="dark:bg-[#2C303B] dark:border-transparent dark:text-body-color-dark dark:shadow-two dark:focus:border-primary w-full rounded-lg border border-gray-300 bg-white px-4 py-3 outline-none focus:border-primary"
                     />
                   </div>
                   <div>
@@ -173,7 +173,7 @@ const Contact = () => {
                       value={formData.material_amount}
                       onChange={handleChange}
                       placeholder="How much do you need?"
-                      className="dark:bg-[#2C303B] dark:border-transparent dark:text-body-color-dark dark:shadow-two dark:focus:border-primary w-full rounded-lg border border-gray-300 px-4 py-3 outline-none focus:border-primary"
+                      className="dark:bg-[#2C303B] dark:border-transparent dark:text-body-color-dark dark:shadow-two dark:focus:border-primary w-full rounded-lg border border-gray-300 bg-white px-4 py-3 outline-none focus:border-primary"
                     />
                   </div>
                 </div>
@@ -190,7 +190,7 @@ const Contact = () => {
                     onChange={handleChange}
                     rows={5}
                     placeholder="Please enter any additional details or questions you may have"
-                    className="dark:bg-[#2C303B] dark:border-transparent dark:text-body-color-dark dark:shadow-two dark:focus:border-primary w-full resize-none rounded-lg border border-gray-300 px-4 py-3 outline-none focus:border-primary"
+                    className="dark:bg-[#2C303B] dark:border-transparent dark:text-body-color-dark dark:shadow-two dark:focus:border-primary w-full resize-none rounded-lg border border-gray-300 bg-white px-4 py-3 outline-none focus:border-primary"
                   ></textarea>
                 </div>
                 <div className="mt-8 text-center">
