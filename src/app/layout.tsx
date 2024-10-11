@@ -47,7 +47,7 @@ export default function RootLayout({
         />
         <meta
           property="og:description"
-          content="Loam Depot, family-owned and operated for 6 years, offers high-quality loam, sand, river rock, field stone, and crushed concrete at wholesale prices. With locations in Newton and Sanbornville, New Hampshire, we provide fast delivery and price matching. Contact us today for all your landscaping and construction material needs."
+          content="Loam Depot, family-owned and operated for 6 years, offers high-quality loam, sand, river rock, field stone, and crushed concrete at wholesale prices. Located in Newton, New Hampshire, we provide fast delivery and price matching. Contact us today for all your landscaping and construction material needs."
         />
         <meta
           property="og:image"
@@ -60,7 +60,7 @@ export default function RootLayout({
         />
         <meta
           name="twitter:description"
-          content="Loam Depot, family-owned and operated for 6 years, offers high-quality loam, sand, river rock, field stone, and crushed concrete at wholesale prices. With locations in Newton and Sanbornville, New Hampshire, we provide fast delivery and price matching. Contact us today for all your landscaping and construction material needs."
+          content="Loam Depot, family-owned and operated for 6 years, offers high-quality loam, sand, river rock, field stone, and crushed concrete at wholesale prices. Located in Newton, New Hampshire, we provide fast delivery and price matching. Contact us today for all your landscaping and construction material needs."
         />
         <meta
           name="twitter:url"

@@ -23,7 +23,7 @@ export async function POST(request: Request) {
     })
 
     const mailOptions = {
-      from: `Loam Depot Email <emailer@toylocker.llc>`,
+      from: `Loam Depot Email <emailer@loamdepot.com>`,
       to: process.env.EMAIL_TO,
       subject: `Loam Depot message from ${name}`,
       text: message,

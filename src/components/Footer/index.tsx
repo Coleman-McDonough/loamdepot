@@ -5,7 +5,7 @@ import Link from "next/link"
 const Footer = () => {
   return (
     <>
-      <footer className="relative z-10 bg-white pt-16 dark:bg-gray-dark md:pt-20 lg:pt-24">
+      <footer className="dark:bg-gray-dark relative z-10 bg-white pt-16 md:pt-20 lg:pt-24">
         <div className="container">
           <div className="-mx-4 flex flex-wrap">
             <div className="w-full px-4 md:w-1/2 lg:w-4/12 xl:w-5/12">
@@ -16,35 +16,35 @@ const Footer = () => {
                     alt="logo"
                     width={140}
                     height={30}
-                    className="w-full dark:hidden"
+                    className="dark:hidden w-full"
                   />
                   <Image
                     src="/images/logo/ld_logo_dark.png"
                     alt="logo"
                     width={140}
                     height={30}
-                    className="hidden w-full dark:block"
+                    className="dark:block hidden w-full"
                   />
                 </Link>
-                <p className="mx-2 flex-col text-base leading-relaxed text-body-color dark:text-body-color-dark">
+                <p className="dark:text-body-color-dark mx-2 flex-col text-base leading-relaxed text-body-color">
                   Direct:
                   <Link
                     href="tel:978-375-7001"
-                    className="m-2 text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
+                    className="dark:text-body-color-dark dark:hover:text-primary m-2 text-body-color duration-300 hover:text-primary"
                   >
                     978-375-7001
                   </Link>
                 </p>
-                <p className="mx-2 flex-col text-base leading-relaxed text-body-color dark:text-body-color-dark">
+                <p className="dark:text-body-color-dark mx-2 flex-col text-base leading-relaxed text-body-color">
                   Office:
                   <Link
                     href="tel:603-399-5029"
-                    className="m-2 text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
+                    className="dark:text-body-color-dark dark:hover:text-primary m-2 text-body-color duration-300 hover:text-primary"
                   >
                     603-399-5029
                   </Link>
                 </p>
-                <div className="mb-9 text-base leading-relaxed text-body-color dark:text-body-color-dark lg:flex">
+                <div className="dark:text-body-color-dark mb-9 text-base leading-relaxed text-body-color lg:flex">
                   <p className="m-2">
                     187 South Main St
                     <br />
@@ -52,13 +52,14 @@ const Footer = () => {
                     <br />
                     03858
                   </p>
+                  {/*
                   <p className="m-2">
                     49 Crystal Lane
                     <br />
                     Sanbornville, NH
                     <br />
                     03872
-                  </p>
+                  </p>*/}
                 </div>
                 {/** 
                 <div className="flex items-center">
@@ -143,14 +144,14 @@ const Footer = () => {
 
             <div className="w-full px-4 sm:w-1/2 md:w-1/2 lg:w-2/12 xl:w-2/12">
               <div className="mb-12 lg:mb-16">
-                <h2 className="mb-10 text-xl font-bold text-black dark:text-white">
+                <h2 className="dark:text-white mb-10 text-xl font-bold text-black">
                   Loam Depot
                 </h2>
                 <ul>
                   <li>
                     <Link
                       href="/about"
-                      className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
+                      className="dark:text-body-color-dark dark:hover:text-primary mb-4 inline-block text-base text-body-color duration-300 hover:text-primary"
                     >
                       About
                     </Link>
@@ -158,7 +159,7 @@ const Footer = () => {
                   <li>
                     <Link
                       href="/"
-                      className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
+                      className="dark:text-body-color-dark dark:hover:text-primary mb-4 inline-block text-base text-body-color duration-300 hover:text-primary"
                     >
                       Pricing
                     </Link>
@@ -166,7 +167,7 @@ const Footer = () => {
                   <li>
                     <Link
                       href="/contact"
-                      className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
+                      className="dark:text-body-color-dark dark:hover:text-primary mb-4 inline-block text-base text-body-color duration-300 hover:text-primary"
                     >
                       Contact
                     </Link>
@@ -177,14 +178,14 @@ const Footer = () => {
 
             <div className="w-full px-4 sm:w-1/2 md:w-1/2 lg:w-2/12 xl:w-2/12">
               <div className="mb-12 lg:mb-16">
-                <h2 className="mb-10 text-xl font-bold text-black dark:text-white">
+                <h2 className="dark:text-white mb-10 text-xl font-bold text-black">
                   C.P. McDonough
                 </h2>
                 <ul>
                   <li>
                     <Link
                       href="https://www.cpmcdonoughconstructioncorp.com/"
-                      className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
+                      className="dark:text-body-color-dark dark:hover:text-primary mb-4 inline-block text-base text-body-color duration-300 hover:text-primary"
                     >
                       CPM Construction Corp
                     </Link>
@@ -192,7 +193,7 @@ const Footer = () => {
                   <li>
                     <Link
                       href="https://www.cpmcdonoughconcretedisposal.com/"
-                      className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
+                      className="dark:text-body-color-dark dark:hover:text-primary mb-4 inline-block text-base text-body-color duration-300 hover:text-primary"
                     >
                       CPM Concrete Disposal
                     </Link>
@@ -203,14 +204,14 @@ const Footer = () => {
 
             <div className="w-full px-4 md:w-1/2 lg:w-4/12 xl:w-3/12">
               <div className="mb-12 lg:mb-16">
-                <h2 className="mb-10 text-xl font-bold text-black dark:text-white">
+                <h2 className="dark:text-white mb-10 text-xl font-bold text-black">
                   Other Links
                 </h2>
                 <ul>
                   <li>
                     <Link
                       href="https://www.snhindustrialpark.com/"
-                      className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
+                      className="dark:text-body-color-dark dark:hover:text-primary mb-4 inline-block text-base text-body-color duration-300 hover:text-primary"
                     >
                       SNH Industrial Park
                     </Link>
@@ -218,7 +219,7 @@ const Footer = () => {
                   <li>
                     <Link
                       href="https://toylocker.llc"
-                      className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
+                      className="dark:text-body-color-dark dark:hover:text-primary mb-4 inline-block text-base text-body-color duration-300 hover:text-primary"
                     >
                       Toy Locker
                     </Link>
@@ -228,9 +229,9 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="h-px w-full bg-gradient-to-r from-transparent via-[#D2D8E183] to-transparent dark:via-[#959CB183]"></div>
+          <div className="dark:via-[#959CB183] h-px w-full bg-gradient-to-r from-transparent via-[#D2D8E183] to-transparent"></div>
           <div className="py-8">
-            <p className="text-center text-base text-body-color dark:text-white">
+            <p className="dark:text-white text-center text-base text-body-color">
               2024 - CPM
             </p>
           </div>

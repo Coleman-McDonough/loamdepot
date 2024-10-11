@@ -1,15 +1,20 @@
+import Link from "next/link"
+
 const PricingBox = (props: {
   price: string
   image: string
   duration: string
   packageName: string
   subtitle: string
-  children: React.ReactNode
+  isActive: boolean
+  urlEnd: string
+  //children: React.ReactNode
 }) => {
-  const { price, image, duration, packageName, subtitle, children } = props
+  const { price, image, duration, packageName, subtitle, isActive, urlEnd } =
+    props
 
   return (
-    <div className="w-full">
+    <div className={`${isActive ? "block" : "hidden"} w-full`}>
       <div className="dark:bg-gray-dark dark:shadow-two dark:hover:shadow-gray-dark relative z-10 rounded-sm bg-white px-8 py-10 shadow-three hover:shadow-one">
         <div className="flex items-center justify-between">
           <h3 className="price dark:text-white mb-2 text-[32px] font-bold text-black">
@@ -22,22 +27,24 @@ const PricingBox = (props: {
             {packageName}
           </h4>
         </div>
-        <div className="relative h-[200px] w-full overflow-hidden rounded-lg">
-          <img
-            src={image || "/images/products/field_stone.jpg"}
-            alt="Image"
-            className="object-cover"
-          />
+        <div className="relative mb-2 h-[200px] w-full overflow-hidden rounded-lg">
+          <Link href={`/${urlEnd}`}>
+            <img
+              src={image || "/images/products/field_stone.jpg"}
+              alt="Image"
+              className="object-cover"
+            />
+          </Link>
         </div>
         <p className="mb-7 text-base text-body-color">{subtitle}</p>
-        <div className="dark:border-white dark:border-opacity-10 mb-8 border-b border-body-color border-opacity-10 pb-8">
+        <div className="dark:border-white dark:border-opacity-10 border-b border-body-color border-opacity-10 pb-8">
           <a href="tel:9783757001">
             <button className="flex w-full items-center justify-center rounded-sm bg-primary p-3 text-base font-semibold text-white transition duration-300 ease-in-out hover:bg-opacity-80 hover:shadow-signUp">
               Call Now!
             </button>
           </a>
         </div>
-        <div>{children}</div>
+        {/*<div>{children}</div>*/}
         <div className="absolute bottom-0 right-0 z-[-1]">
           <svg
             width="179"

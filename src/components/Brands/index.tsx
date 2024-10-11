@@ -11,7 +11,7 @@ const Brands = () => {
             <p className="m-2 text-center text-xl">
               Trusted By Our Affiliates:
             </p>
-            <div className="bg-green-light flex flex-wrap items-center justify-center rounded-sm p-8 dark:bg-gray-dark">
+            <div className="dark:bg-gray-dark flex flex-wrap items-center justify-center rounded-sm bg-green-light p-8">
               {brandsData.map((brand) => (
                 <SingleBrand key={brand.id} brand={brand} />
               ))}
@@ -39,13 +39,13 @@ const SingleBrand = ({ brand }: { brand: Brand }) => {
         <Image
           src={imageLight}
           alt={name}
-          className="hidden object-cover dark:block"
+          className="dark:block hidden object-cover"
           layout="fill"
         />
         <Image
           src={image}
           alt={name}
-          className="block object-cover dark:hidden"
+          className="dark:hidden block object-cover"
           layout="fill"
         />
       </a>

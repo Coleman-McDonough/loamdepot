@@ -1,15 +1,15 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["localhost"],
+    domains: ["localhost", "cdn.discordapp.com", "www.loamdepot.com"],
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "cdn.sanity.io",
+        hostname: "*",
         port: "",
       },
     ],
   },
-};
+}
 
-module.exports = nextConfig;
+module.exports = nextConfig
