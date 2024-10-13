@@ -13,8 +13,10 @@ interface MaterialPageProps {
 export async function generateMetadata({
   params,
 }: MaterialPageProps): Promise<Metadata> {
-  // Fetch material data directly in the server-side function
-  const material = await fetchMaterialByUrlEnd(params.urlEnd)
+  // Fetch material data directly in the server-side function with no cache
+  const material = await fetchMaterialByUrlEnd(params.urlEnd, {
+    cache: "no-store",
+  })
 
   if (!material) {
     return {
@@ -32,8 +34,8 @@ export async function generateMetadata({
 export default async function MaterialPage({ params }: MaterialPageProps) {
   const { urlEnd } = params
 
-  // Fetch material by urlEnd from the database
-  const material = await fetchMaterialByUrlEnd(urlEnd)
+  // Fetch material by urlEnd from the database with no cache
+  const material = await fetchMaterialByUrlEnd(urlEnd, { cache: "no-store" })
 
   // Handle 404 if material is not found
   if (!material) {
@@ -90,3 +92,6 @@ export default async function MaterialPage({ params }: MaterialPageProps) {
     </>
   )
 }
+
+// This ensures the page is always dynamically rendered on each request
+export const revalidate = 0

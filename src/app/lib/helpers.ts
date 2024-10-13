@@ -12,13 +12,18 @@ export async function fetchMaterials(): Promise<MaterialsEntry[]> {
 // Fetch a single material by `urlEnd`
 export async function fetchMaterialByUrlEnd(
   urlEnd: string,
+  options: RequestInit = {}, // Add an optional `options` argument with a default
 ): Promise<MaterialsEntry | null> {
-  // Construct the full URL using an environment variable for the base URL
-  const baseUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000"
-  const response = await fetch(`${baseUrl}/api/materials?urlEnd=${urlEnd}`)
+  // Use environment variable for the base URL
+  const baseUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000" // Default to localhost for local dev
+  const response = await fetch(
+    `${baseUrl}/api/materials?urlEnd=${urlEnd}`,
+    options,
+  ) // Use options here
 
   if (!response.ok) {
     return null // Return null if material not found
   }
+
   return response.json()
 }
