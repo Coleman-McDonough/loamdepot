@@ -1,3 +1,4 @@
+import { isAllNumbersWithCommas } from "@/app/lib/helpers"
 import Link from "next/link"
 
 const PricingBox = (props: {
@@ -18,9 +19,14 @@ const PricingBox = (props: {
       <div className="dark:bg-gray-dark dark:shadow-two dark:hover:shadow-gray-dark relative z-10 rounded-sm bg-white px-8 py-10 shadow-three hover:shadow-one">
         <div className="flex items-center justify-between">
           <h3 className="price dark:text-white mb-2 text-[32px] font-bold text-black">
-            $<span className="amount">{price}</span>
+            {`${isAllNumbersWithCommas(price) ? `$` : ""}`}
+            <span
+              className={`amount ${!isAllNumbersWithCommas(price) ? "text-xl" : ""} `}
+            >
+              {price}
+            </span>
             <span className="time text-lg font-medium text-body-color">
-              /{duration}
+              {`${isAllNumbersWithCommas(price) ? `/${duration}` : ""}`}
             </span>
           </h3>
           <h4 className="dark:text-white mb-2 text-xl font-bold text-dark">

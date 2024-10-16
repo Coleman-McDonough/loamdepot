@@ -1,6 +1,9 @@
 import Image from "next/image"
 import { Metadata } from "next"
-import { fetchMaterialByUrlEnd } from "@/app/lib/helpers"
+import {
+  fetchMaterialByUrlEnd,
+  isAllNumbersWithCommas,
+} from "@/app/lib/helpers"
 import { notFound } from "next/navigation"
 
 interface MaterialPageProps {
@@ -54,8 +57,10 @@ export default async function MaterialPage({ params }: MaterialPageProps) {
                     {material.name}
                   </h2>
                   <div className="text-lg font-semibold text-gray-700">
-                    ${material.pickupPrice} per yard pick up <br /> $
-                    {material.deliveryPrice} per 20 yards local delivery
+                    $
+                    {`${isAllNumbersWithCommas(material.pickupPrice) ? `${material.pickupPrice} per yard picked up` : ` ${material.pickupPrice} for pickup`}`}{" "}
+                    <br />$
+                    {`${isAllNumbersWithCommas(material.deliveryPrice) ? `${material.deliveryPrice} per 20 yards local delivery` : ` ${material.deliveryPrice} for delivery`}`}
                   </div>
                 </div>
                 <div className="dark:border-white dark:border-opacity-10 mb-10 flex items-center justify-between border-b border-body-color border-opacity-10 pb-4">
@@ -79,9 +84,15 @@ export default async function MaterialPage({ params }: MaterialPageProps) {
                     Pricing
                   </h3>
                   <p className="mb-10 text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed lg:text-base lg:leading-relaxed xl:text-lg xl:leading-relaxed">
-                    - ${material.pickupPrice} per yard picked up <br />- $
-                    {material.deliveryPrice} per 20-yard triaxle load for
-                    deliveries within a 20-mile radius
+                    - $
+                    {`${isAllNumbersWithCommas(material.pickupPrice) ? `${material.pickupPrice} per yard picked up` : ` ${material.pickupPrice} for pickup`}`}{" "}
+                    <br />- $
+                    {`${
+                      isAllNumbersWithCommas(material.deliveryPrice)
+                        ? `${material.deliveryPrice} per 20-yard triaxle load for
+                    deliveries within a 20-mile radius`
+                        : ` ${material.deliveryPrice} for delivery`
+                    }`}
                   </p>
                 </div>
               </div>

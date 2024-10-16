@@ -27,3 +27,8 @@ export async function fetchMaterialByUrlEnd(
 
   return response.json()
 }
+
+export function isAllNumbersWithCommas(str: string): boolean {
+  const regex = /^[0-9]+(,[0-9]+)*$/
+  return regex.test(str)
+}
