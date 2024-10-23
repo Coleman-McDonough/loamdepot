@@ -69,10 +69,10 @@ const Contact = () => {
         <div className="flex justify-center">
           <div className="w-full lg:w-8/12">
             <div
-              className="dark:bg-gray-dark rounded-lg bg-white p-8 shadow-md"
+              className="rounded-lg bg-white p-8 text-black shadow-md"
               data-wow-delay=".15s"
             >
-              <h2 className="dark:text-white mb-6 text-center text-2xl font-bold sm:text-3xl">
+              <h2 className="mb-6 text-center text-2xl font-bold sm:text-3xl">
                 Need Materials? Let Us Know!
               </h2>
               <p className="mb-8 text-center text-base font-medium text-body-color">
@@ -85,7 +85,7 @@ const Contact = () => {
                   <div>
                     <label
                       htmlFor="name"
-                      className="dark:text-white mb-2 block text-sm font-medium text-dark"
+                      className="mb-2 block text-sm font-medium text-dark"
                     >
                       Your Name
                     </label>
@@ -95,13 +95,13 @@ const Contact = () => {
                       value={formData.name}
                       onChange={handleChange}
                       placeholder="Enter your name"
-                      className="dark:bg-[#2C303B] dark:border-transparent dark:text-body-color-dark dark:shadow-two dark:focus:border-primary w-full rounded-lg border border-gray-300 bg-white px-4 py-3 outline-none focus:border-primary"
+                      className="w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-black outline-none focus:border-primary"
                     />
                   </div>
                   <div>
                     <label
                       htmlFor="email"
-                      className="dark:text-white mb-2 block text-sm font-medium text-dark"
+                      className="mb-2 block text-sm font-medium text-dark"
                     >
                       Your Email
                     </label>
@@ -111,13 +111,13 @@ const Contact = () => {
                       value={formData.email}
                       onChange={handleChange}
                       placeholder="Enter your email"
-                      className="dark:bg-[#2C303B] dark:border-transparent dark:text-body-color-dark dark:shadow-two dark:focus:border-primary w-full rounded-lg border border-gray-300 bg-white px-4 py-3 outline-none focus:border-primary"
+                      className="w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-black outline-none focus:border-primary"
                     />
                   </div>
                   <div>
                     <label
                       htmlFor="address"
-                      className="dark:text-white mb-2 block text-sm font-medium text-dark"
+                      className="mb-2 block text-sm font-medium text-dark"
                     >
                       Your Address
                     </label>
@@ -127,13 +127,13 @@ const Contact = () => {
                       value={formData.address}
                       onChange={handleChange}
                       placeholder="Enter your address"
-                      className="dark:bg-[#2C303B] dark:border-transparent dark:text-body-color-dark dark:shadow-two dark:focus:border-primary w-full rounded-lg border border-gray-300 bg-white px-4 py-3 outline-none focus:border-primary"
+                      className="w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-black outline-none focus:border-primary"
                     />
                   </div>
                   <div>
                     <label
                       htmlFor="phone"
-                      className="dark:text-white mb-2 block text-sm font-medium text-dark"
+                      className="mb-2 block text-sm font-medium text-dark"
                     >
                       Your Phone Number
                     </label>
@@ -143,13 +143,13 @@ const Contact = () => {
                       value={formData.phone}
                       onChange={handleChange}
                       placeholder="Enter your phone number"
-                      className="dark:bg-[#2C303B] dark:border-transparent dark:text-body-color-dark dark:shadow-two dark:focus:border-primary w-full rounded-lg border border-gray-300 bg-white px-4 py-3 outline-none focus:border-primary"
+                      className="w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-black outline-none focus:border-primary"
                     />
                   </div>
                   <div>
                     <label
                       htmlFor="material_type"
-                      className="dark:text-white mb-2 block text-sm font-medium text-dark"
+                      className="mb-2 block text-sm font-medium text-dark"
                     >
                       Material Type
                     </label>
@@ -158,13 +158,13 @@ const Contact = () => {
                       value={formData.material_type}
                       onChange={handleChange}
                       placeholder="Which materials do you need?"
-                      className="dark:bg-[#2C303B] dark:border-transparent dark:text-body-color-dark dark:shadow-two dark:focus:border-primary w-full rounded-lg border border-gray-300 bg-white px-4 py-3 outline-none focus:border-primary"
+                      className="w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-black outline-none focus:border-primary"
                     />
                   </div>
                   <div>
                     <label
                       htmlFor="material_amount"
-                      className="dark:text-white mb-2 block text-sm font-medium text-dark"
+                      className="mb-2 block text-sm font-medium text-dark"
                     >
                       Material Amount
                     </label>
@@ -173,14 +173,14 @@ const Contact = () => {
                       value={formData.material_amount}
                       onChange={handleChange}
                       placeholder="How much do you need?"
-                      className="dark:bg-[#2C303B] dark:border-transparent dark:text-body-color-dark dark:shadow-two dark:focus:border-primary w-full rounded-lg border border-gray-300 bg-white px-4 py-3 outline-none focus:border-primary"
+                      className="w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-black outline-none focus:border-primary"
                     />
                   </div>
                 </div>
                 <div className="mt-6">
                   <label
                     htmlFor="message"
-                    className="dark:text-white mb-2 block text-sm font-medium text-dark"
+                    className="mb-2 block text-sm font-medium text-dark"
                   >
                     Additional Details/Questions
                   </label>
@@ -190,13 +190,13 @@ const Contact = () => {
                     onChange={handleChange}
                     rows={5}
                     placeholder="Please enter any additional details or questions you may have"
-                    className="dark:bg-[#2C303B] dark:border-transparent dark:text-body-color-dark dark:shadow-two dark:focus:border-primary w-full resize-none rounded-lg border border-gray-300 bg-white px-4 py-3 outline-none focus:border-primary"
+                    className="w-full resize-none rounded-lg border border-gray-300 bg-white px-4 py-3 text-black outline-none focus:border-primary"
                   ></textarea>
                 </div>
                 <div className="mt-8 text-center">
                   <button
                     type="submit"
-                    className="dark:shadow-submit-dark w-full rounded-lg bg-primary px-6 py-4 text-base font-medium text-white shadow-submit duration-300 hover:bg-primary/90"
+                    className="w-full rounded-lg bg-primary px-6 py-4 text-base font-medium text-white shadow-submit duration-300 hover:bg-primary/90"
                     disabled={status === "Sending..."} // Disable button while sending
                   >
                     {status === "Sending..." ? "Sending..." : "Submit"}{" "}
