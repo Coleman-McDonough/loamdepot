@@ -30,7 +30,7 @@ export async function OPTIONS(request: NextRequest): Promise<NextResponse> {
   })
 }
 
-// GET: Retrieve all materials entries or a specific one by _id or urlEnd
+// Adjust the API response to include `typesAndPrices`.
 export async function GET(request: NextRequest): Promise<NextResponse> {
   try {
     const { searchParams } = new URL(request.url)
@@ -40,7 +40,6 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
     const { db } = await connectToMongodbMaterials()
 
     if (id) {
-      // Fetch a single material by _id
       const objectId = new ObjectId(id)
       const material = await db
         .collection<MaterialsEntry>("materials")
@@ -55,7 +54,6 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
         )
       }
     } else if (urlEnd) {
-      // Fetch a single material by `urlEnd`
       const material = await db
         .collection<MaterialsEntry>("materials")
         .findOne({ urlEnd })
@@ -69,7 +67,6 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
         )
       }
     } else {
-      // Fetch all materials if no specific id or urlEnd is provided
       const materials = await db
         .collection<MaterialsEntry>("materials")
         .find({})
@@ -77,15 +74,9 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
       return NextResponse.json(materials)
     }
   } catch (error) {
-    if (error instanceof Error) {
-      console.error("Error fetching data from MongoDB:", error.message)
-      return NextResponse.json(
-        { message: `Failed to fetch data: ${error.message}` },
-        { status: 500 },
-      )
-    }
+    console.error("Error fetching data:", error)
     return NextResponse.json(
-      { message: "Unknown error occurred" },
+      { message: "Failed to fetch data" },
       { status: 500 },
     )
   }

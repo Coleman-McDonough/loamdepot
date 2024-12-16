@@ -1,10 +1,8 @@
 "use client"
-import { useState, useEffect, Key } from "react"
+import { useState } from "react"
 import SectionTitle from "../Common/SectionTitle"
-import OfferList from "./OfferList"
 import PricingBox from "./PricingBox"
 import { useMaterials } from "@/hooks/useMaterials" // Custom hook for fetching materials
-import Link from "next/link"
 
 const Pricing = () => {
   const [isMonthly, setIsMonthly] = useState(true) // State to toggle between pickup and delivery pricing
@@ -68,24 +66,15 @@ const Pricing = () => {
         <div className="grid grid-cols-1 gap-x-8 gap-y-10 md:grid-cols-2 lg:grid-cols-3">
           {materials.map((material) => (
             <PricingBox
-              key={material._id as Key}
+              key={material._id.toString()}
               packageName={material.name}
               image={material.imageUrl}
-              price={isMonthly ? material.pickupPrice : material.deliveryPrice}
-              duration={isMonthly ? "yard" : "20yd"}
               subtitle={material.description.split(".")[0] + "."} // Truncate to the first sentence
+              typesAndPrices={material.typesAndPrices} // Pass typesAndPrices to PricingBox
               isActive={material.isActive}
               urlEnd={material.urlEnd}
-            >
-              {/* Render features if available
-              {material.features && material.features.length > 0 ? (
-                material.features.map((feature: string, index: number) => (
-                  <OfferList key={index} text={feature} status="active" />
-                ))
-              ) : (
-                <p>No features available</p>
-              )} */}
-            </PricingBox>
+              isMonthly={isMonthly} // Pass toggle state
+            />
           ))}
         </div>
       </div>
