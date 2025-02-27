@@ -23,3 +23,16 @@ export async function connectToMongodbMaterials(): Promise<DatabaseConnection> {
   const db = client.db("materials")
   return { db, client }
 }
+
+export async function connectToMongodbVisitors(): Promise<DatabaseConnection> {
+  try {
+    await client.connect();
+    console.log("Connected to MongoDB - QR Visitors");
+  } catch (error) {
+    console.error("Error connecting to MongoDB:", error);
+    throw error;
+  }
+
+  const db = client.db("loamdepotVisitors");
+  return { db, client };
+}
