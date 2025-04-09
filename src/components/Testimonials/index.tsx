@@ -35,7 +35,7 @@ const Testimonials = () => {
       <div className="container">
         <SectionTitle
           title="What Our Customers Say"
-          paragraph="Don't just take our word for it—hear what our satisfied customers have to say! At Loam Depot, we pride ourselves on delivering high-quality landscape materials and exceptional service. Read through our testimonials to see why families and businesses have trusted us for over 6 years for their loam, sand, river rock, field stone, and crushed concrete needs. Your satisfaction is our top priority!"
+          paragraph="Don't just take our word for it—hear what our satisfied customers have to say! At Loam Depot, we pride ourselves on delivering high-quality landscape materials and exceptional service. Read through our testimonials to see why families and businesses have trusted us for over 39 years for their loam, sand, river rock, field stone, and crushed concrete needs. Your satisfaction is our top priority!"
           center
         />
 
