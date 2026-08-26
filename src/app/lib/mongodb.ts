@@ -1,38 +1,36 @@
-// app/lib/mongodb.ts
 import { MongoClient, Db } from "mongodb"
 
 const uri = process.env.MONGODB_URI || ""
-const client = new MongoClient(uri)
+
+type GlobalMongo = typeof globalThis & {
+  _mongoClientPromise?: Promise<MongoClient>
+}
 
 export interface DatabaseConnection {
   db: Db
   client: MongoClient
 }
 
-export async function connectToMongodbMaterials(): Promise<DatabaseConnection> {
-  try {
-    // Attempt to connect to the database
-    await client.connect()
-    console.log("Connected to MongoDB")
-  } catch (error) {
-    // If there's an error, log it and throw it to be handled by the caller
-    console.error("Error connecting to MongoDB:", error)
-    throw error
+async function getClient(): Promise<MongoClient> {
+  if (!uri) {
+    throw new Error("MONGODB_URI is not set")
   }
+  const globalForMongo = globalThis as GlobalMongo
+  if (!globalForMongo._mongoClientPromise) {
+    globalForMongo._mongoClientPromise = new MongoClient(uri).connect()
+  }
+  return globalForMongo._mongoClientPromise
+}
 
-  const db = client.db("materials")
-  return { db, client }
+async function connectNamed(name: string): Promise<DatabaseConnection> {
+  const client = await getClient()
+  return { client, db: client.db(name) }
+}
+
+export async function connectToMongodbMaterials(): Promise<DatabaseConnection> {
+  return connectNamed("materials")
 }
 
 export async function connectToMongodbVisitors(): Promise<DatabaseConnection> {
-  try {
-    await client.connect();
-    console.log("Connected to MongoDB - QR Visitors");
-  } catch (error) {
-    console.error("Error connecting to MongoDB:", error);
-    throw error;
-  }
-
-  const db = client.db("loamdepotVisitors");
-  return { db, client };
+  return connectNamed("loamdepotVisitors")
 }

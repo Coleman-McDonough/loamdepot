@@ -1,3 +1,4 @@
+import { publicOrigin } from "./origin"
 import { MaterialsEntry } from "../models/EntrySchemas"
 
 // Fetch all materials
@@ -15,7 +16,7 @@ export async function fetchMaterialByUrlEnd(
   options: RequestInit = {}, // Add an optional `options` argument with a default
 ): Promise<MaterialsEntry | null> {
   // Use environment variable for the base URL
-  const baseUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000" // Default to localhost for local dev
+  const baseUrl = publicOrigin()
   const response = await fetch(
     `${baseUrl}/api/materials?urlEnd=${urlEnd}`,
     options,
