@@ -6,6 +6,17 @@ import { useState } from "react"
 import SectionTitle from "../Common/SectionTitle"
 
 const ModalVideo = dynamic(() => import("react-modal-video"), { ssr: false })
+import ClientErrorBoundary from "../ClientErrorBoundary"
+
+const modalClassNames = {
+  modalVideoEffect: "modal-video-effect",
+  modalVideo: "modal-video",
+  modalVideoClose: "modal-video-close",
+  modalVideoBody: "modal-video-body",
+  modalVideoInner: "modal-video-inner",
+  modalVideoIframeWrap: "modal-video-movie-wrap",
+  modalVideoCloseBtn: "modal-video-close-btn",
+}
 
 const Video = () => {
   const [isOpen, setOpen] = useState(false)
@@ -54,15 +65,20 @@ const Video = () => {
         </div>
       </div>
 
-      <ModalVideo
-        channel="youtube"
-        autoplay={true}
-        start={true}
-        ratio="16:9"
-        isOpen={isOpen}
-        videoId="qKK2sXhIHqA"
-        onClose={() => setOpen(false)}
-      />
+      {isOpen ? (
+        <ClientErrorBoundary>
+          <ModalVideo
+            channel="youtube"
+            autoplay={true}
+            ratio="16:9"
+            classNames={modalClassNames}
+            animationSpeed={300}
+            isOpen={isOpen}
+            videoId="qKK2sXhIHqA"
+            onClose={() => setOpen(false)}
+          />
+        </ClientErrorBoundary>
+      ) : null}
 
       <div className="absolute bottom-0 left-0 right-0 z-[-1] h-full w-full bg-[url(/images/video/shape.svg)] bg-cover bg-center bg-no-repeat"></div>
     </section>
