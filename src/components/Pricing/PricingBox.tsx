@@ -1,4 +1,4 @@
-import Link from "next/link"
+import SiteLink from "@/components/Common/SiteLink"
 
 const PricingBox = (props: {
   image: string
@@ -26,13 +26,13 @@ const PricingBox = (props: {
           {packageName}
         </h4>
         <div className="relative mb-2 h-[200px] w-full overflow-hidden rounded-lg">
-          <Link href={`/${urlEnd}`}>
+          <SiteLink href={`/${urlEnd}`}>
             <img
               src={image || "/images/products/field_stone.jpg"}
               alt="Image"
               className="object-cover"
             />
-          </Link>
+          </SiteLink>
         </div>
         <p className="mb-7 text-base text-body-color">{subtitle}</p>
         <ul className="mb-7">

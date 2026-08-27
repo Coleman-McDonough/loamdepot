@@ -1,7 +1,7 @@
 "use client"
 
 import dynamic from "next/dynamic"
-import { Component, type ReactNode } from "react"
+import { Component, useEffect, useState, type ReactNode } from "react"
 
 const HCaptcha = dynamic(() => import("@hcaptcha/react-hcaptcha"), {
   ssr: false,
@@ -15,16 +15,7 @@ class CaptchaErrorBoundary extends Component<
 > {
   state = { failed: false }
 
-  static getDerivedStateFromError(error: unknown) {
-    if (
-      typeof error === "object" &&
-      error !== null &&
-      "digest" in error &&
-      (error as { digest?: string }).digest ===
-        "BAILOUT_TO_CLIENT_SIDE_RENDERING"
-    ) {
-      throw error
-    }
+  static getDerivedStateFromError() {
     return { failed: true }
   }
 
@@ -32,7 +23,8 @@ class CaptchaErrorBoundary extends Component<
     if (this.state.failed) {
       return (
         <p className="text-sm text-body-color">
-          Verification could not load. Call us and we will help you from there.
+          Verification could not load. Call us at (978)-375-7001 and we will
+          help you from there.
         </p>
       )
     }
@@ -45,11 +37,21 @@ export default function CaptchaField({
 }: {
   onVerify: (token: string) => void
 }) {
+  const [ready, setReady] = useState(false)
+
+  useEffect(() => {
+    setReady(true)
+  }, [])
+
   const sitekey = process.env.NEXT_PUBLIC_HCAPTCHA_SITE_KEY || TEST_SITEKEY
+
+  if (!ready) {
+    return null
+  }
 
   return (
     <CaptchaErrorBoundary>
-      <HCaptcha sitekey={sitekey} onVerify={onVerify} />
+      <HCaptcha sitekey={sitekey} onVerify={onVerify} sentry={false} />
     </CaptchaErrorBoundary>
   )
 }

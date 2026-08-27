@@ -1,9 +1,8 @@
 "use client"
 import { Key, useEffect, useState } from "react"
-import Link from "next/link"
+import SiteLink from "@/components/Common/SiteLink"
 import { usePathname } from "next/navigation"
 import { useMaterials } from "@/hooks/useMaterials"
-import ThemeToggler from "./ThemeToggler"
 
 const Header = () => {
   // Navbar toggle
@@ -58,7 +57,7 @@ const Header = () => {
       <div className="container">
         <div className="relative -mx-4 flex items-center justify-between">
           <div className="w-60 max-w-full px-4 xl:mr-12">
-            <Link
+            <SiteLink
               href="/"
               className={`header-logo block w-full ${
                 sticky ? "py-5 lg:py-2" : "py-8"
@@ -69,7 +68,7 @@ const Header = () => {
                 alt="logo"
                 className="w-full"
               />
-            </Link>
+            </SiteLink>
           </div>
           <div className="flex w-full items-center justify-between px-4">
             <div>
@@ -106,7 +105,7 @@ const Header = () => {
                 <ul className="block lg:flex lg:space-x-12">
                   {staticMenu.map((menuItem) => (
                     <li key={menuItem.id} className="group relative">
-                      <Link
+                      <SiteLink
                         href={menuItem.path}
                         className={`flex py-2 text-base lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 ${
                           pathname === menuItem.path
@@ -115,7 +114,7 @@ const Header = () => {
                         }`}
                       >
                         {menuItem.title}
-                      </Link>
+                      </SiteLink>
                     </li>
                   ))}
 
@@ -142,25 +141,25 @@ const Header = () => {
                         openIndex === 4 ? "block" : "hidden"
                       }`}
                     >
-                      <Link
+                      <SiteLink
                         href="/general-pricing"
                         className="dark:text-white/70 dark:hover:text-white block rounded py-2.5 text-sm text-dark hover:text-primary lg:px-3"
                       >
                         General Pricing
-                      </Link>
+                      </SiteLink>
                       {loading ? (
                         <p className="dark:text-white/70 text-sm text-dark">
                           Loading products...
                         </p>
                       ) : (
                         materials.map((material) => (
-                          <Link
+                          <SiteLink
                             href={`/${material.urlEnd}`}
                             key={material._id as Key}
                             className="dark:text-white/70 dark:hover:text-white block rounded py-2.5 text-sm text-dark hover:text-primary lg:px-3"
                           >
                             {material.name}
-                          </Link>
+                          </SiteLink>
                         ))
                       )}
                     </div>
@@ -169,13 +168,12 @@ const Header = () => {
               </nav>
             </div>
             <div className="flex items-center justify-end pr-16 lg:pr-0">
-              {/*<ThemeToggler />*/}
-              <Link
+              <a
                 href="tel:978-375-7001"
                 className="ease-in-up hidden rounded-sm bg-primary px-4 py-3 text-base font-medium text-white shadow-btn transition duration-300 hover:bg-opacity-90 hover:shadow-btn-hover md:block md:px-6 lg:px-3 xl:px-6"
               >
                 (978)-375-7001
-              </Link>
+              </a>
             </div>
           </div>
         </div>
